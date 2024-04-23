@@ -1,0 +1,170 @@
+.services {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        font: var(--font-xl);
+        font-weight: 500;
+    }
+
+    @media (max-width: 590px) {
+        flex-direction: column;
+        
+
+        .custom_button{
+            color: white;
+            background-color: #3A3C35;
+            margin-bottom: 2rem;
+            width: 70%;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.cards {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    margin-top: 2rem;
+
+    .card {
+        position: relative;
+        width: 100%; // Измените в соответствии с вашими требованиями
+        padding-top: 33.33%; // Это задаст высоту, равную ширине
+        background-size: cover; // Это регулирует размер изображения
+        background-repeat: no-repeat;
+
+        .card_description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5); // Прозрачный фон для текста
+            color: white;
+            padding: 10px;
+            margin: 0;
+            font-size: 10pt;
+        }
+    }
+
+    @media (max-width: 680px) {
+        .card {
+            .card_description {
+                font-size: 7pt;
+            }
+        }
+    }
+    @media (max-width: 590px) {
+        flex-direction: column;
+        .card{
+            height: 230px;
+        }
+    }
+}
+
+.faq_block{
+
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    
+    h1{
+        font: var(--font-xl);
+        font-weight: 600;
+        color: #3A3C35;
+        width: 50%;
+        height: 100%;
+        margin-top: 0;
+    }
+    .flipper_block{
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    @media (max-width: 590px) {
+        flex-direction: column;
+        
+        h1{
+            font: var(--font-xl);
+            
+        }
+       
+    }
+
+    @media (min-width: 590px) {
+        
+        
+       
+        .flipper_block{
+            width: 100%;
+            margin-top: 0rem;
+        }
+    }
+    
+}
+.map_block{
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    align-items: center;
+
+
+    h1{
+        font: var(--font-xl);
+        font-weight: 600;
+        color: var(--bg-primary);
+        flex-wrap: wrap;
+        width: 300px;
+        
+    }
+    @media (max-width: 590px) {
+        flex-direction: column;
+        align-items: start;
+        h1{
+            font: var(--font-xl);
+            font-weight: 600;
+            width: 300px;
+            align-items: none;
+            margin-bottom: 0rem;
+        }
+
+        .map_block_contact {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+          
+            .phone {
+              font-size: 10pt;
+              align-items: flex-start;
+              margin-bottom: 0;
+              margin-top: 1rem;
+
+            }
+          
+            .adress {
+              font-size: 10pt;
+              margin-top: 0;
+              margin-bottom: 1.5rem;
+
+            }
+          
+            .custom_button {
+              width: 70%;
+              justify-content: center;
+              color: white;
+              background-color: #3a3c35;
+              margin: 0 auto;
+              align-items: center;
+              
+              
+            }
+          
+          }
+          
+    }
+}

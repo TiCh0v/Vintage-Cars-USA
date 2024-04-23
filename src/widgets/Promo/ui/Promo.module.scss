@@ -1,0 +1,74 @@
+.promo {
+    // font-size: 47pt;
+    padding-top: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    
+}
+
+.header {
+    font-size: 45pt;
+    padding-top: 2rem;
+    line-height: 1;
+    
+    
+}
+
+.offer {
+    display: flex;
+    margin-top: 3rem;
+    align-items: center;
+    
+}
+
+.description {
+    color: var(--primary-color);
+    margin-right: 0.5rem; 
+    width: 150px;
+    font: var(--font-m);
+    
+}
+.button{
+    height: 40px;
+}
+
+        
+
+        
+    
+
+@media (max-width: 450px) {
+
+    .promo{
+
+        text-align: center; 
+    }
+
+    .header {
+        font-size: 40pt;
+    }
+    
+    .offer {
+        display: block;
+        text-align: center;
+
+        .description {
+            width: 300px;
+            margin: 0 auto;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            margin-top: 1rem;
+            margin: 0 auto;
+            height: 40px;
+            background-color: #3A3C35;
+            color: white;
+            width: 70%;
+            justify-content: center;
+            
+
+        }
+    }
+}
+

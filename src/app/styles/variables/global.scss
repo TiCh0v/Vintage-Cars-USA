@@ -1,0 +1,36 @@
+:root {
+    --font-family-main: "Unbounded", "Times New Roman", Serif;
+
+
+
+    --font-size-s: 14px;
+    --font-line-s: 24px;
+    --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
+    --font-size-m: 16px;
+    --font-line-m: 24px;
+    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+
+    --font-size-l: 24px;
+    --font-line-l: 32px;
+    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+    --font-size-xl: 40px;
+    --font-line-xl: 48px;
+    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
+    // Размеры
+    --navbar-height: 50px;
+    // --sidebar-width: 300px;
+    // --sidebar-width-collapsed: 60px;
+
+}
+
+.content-page{
+    display: flex;
+}
+
+.page-wrapper{
+    flex-grow: 1;
+    padding: 20px;
+}

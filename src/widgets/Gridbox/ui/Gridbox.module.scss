@@ -1,0 +1,12 @@
+.gridbox {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 3px;
+    justify-content: center;
+  
+    @media (max-width: 590px) {
+      grid-template-columns: 1fr; 
+    }
+}
+  
+  

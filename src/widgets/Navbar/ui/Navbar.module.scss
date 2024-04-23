@@ -1,0 +1,120 @@
+
+.navbar{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(---bg-color);
+    height: var(--navbar-height);
+}
+
+.logobox{
+    margin-left: 1.5rem;
+    cursor: pointer;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.menu {
+    cursor: pointer;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    
+    span {
+      height: 2px;
+      width: 24px;
+      background-color: black;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      display: block;
+      margin: 6px 0; 
+    }
+  
+    &.active span:first-child {
+      transform: translateY(8px) rotate(45deg);
+    }
+  
+    &.active span:nth-child(2) {
+      opacity: 0;
+    }
+  
+    &.active span:last-child {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+ul{
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s ease;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 2.5rem;
+    text-align: center;
+
+
+   
+    li {
+        font-size: var(--font-size-s);
+        font-weight: 300;  
+        padding-left: 1rem; 
+      &:hover{
+        color:#2E6AF6;
+        cursor: pointer;
+      }
+    
+    }  
+}
+
+@media (max-width: 800px) {
+    .navbar {
+      flex-wrap: wrap;
+
+    }
+
+  
+    ul {
+      margin-top: 10px;
+      flex-direction: column;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 1; 
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+      justify-content: center; 
+      
+      margin-right: 0rem;
+    }
+  
+    .show {
+      max-height: 500px; 
+      opacity: 1;
+    }
+  
+    li {
+      
+      text-align: center;
+      color: #333333;
+      background-color: #ffffff;
+      height: 100%;
+      padding: 0.5rem;
+     
+  
+      &:hover{
+          color:#2E6AF6;
+          cursor: pointer;
+      }
+    }
+  
+    .menu {
+      display: block; 
+    }
+  }

@@ -1,0 +1,33 @@
+.container {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #3A3C35;
+    color: #3A3C35;
+    padding-bottom: 7px;
+    
+  }
+  
+.header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12pt;
+    font-weight: 500;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+    font-size: 8pt;
+    opacity: 0.5;
+
+}
+
+.container.open .content {
+    max-height: 1000px;
+}
