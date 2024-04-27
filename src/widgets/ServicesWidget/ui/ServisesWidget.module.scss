@@ -1,0 +1,48 @@
+.cards {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    margin-top: 2rem;
+
+    .card {
+        position: relative;
+        width: 100%; // Измените в соответствии с вашими требованиями
+        padding-top: 33.33%; // Это задаст высоту, равную ширине
+        background-size: cover; // Это регулирует размер изображения
+        background-repeat: no-repeat;
+
+        .card_description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5); 
+            color: white;
+            padding: 10px;
+            margin: 0;
+            font-size: 10pt;
+        }
+    }
+
+    @media (max-width: 680px) {
+        .card {
+            .card_description {
+                font-size: 7pt;
+            }
+        }
+    }
+    @media (max-width: 590px) {
+        flex-direction: column;
+        .card{
+            height: 230px;
+        }
+    }
+}
+
+.service{
+    display: flex;
+    margin-top: 1.5rem;
+    img{
+        height: 300px;
+    }
+}

@@ -18,7 +18,9 @@ export const Navbar = ({className}: NavbarProps) => {
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
             <div className={classNames(cls.logobox, {}, [])}>
-                Cars Classic Autotrader 
+                <AppLink to={'/'}>
+                    Cars Classic Autotrader
+                </AppLink>
             </div>
             <div 
             onClick={toggleMenu}
@@ -29,10 +31,21 @@ export const Navbar = ({className}: NavbarProps) => {
                 <span></span>
             </div>
             <ul className={classNames(cls.ff, {[cls.show]: isMenuOpen}, [])}  >
-                <li >Cars</li>
-                <li >About us</li>
-                <li>Services</li>
-                <li >Contacts</li>
+
+                <AppLink to={'/cars'}>
+                    <li >Cars</li>
+                </AppLink>
+                <AppLink to={'/about'}>
+                    <li >About us</li>
+                </AppLink>
+                <AppLink to={'/services'}>
+                    <li >Services</li>
+                </AppLink>
+                <AppLink to={'/contacts'}>
+                    <li >Contacts</li>
+                </AppLink>
+                
+                
             </ul>
         </div>
   )

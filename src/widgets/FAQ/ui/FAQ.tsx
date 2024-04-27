@@ -3,7 +3,7 @@ import cls from './FAQ.module.scss'
 
 import { Flipper } from 'shared/ui/Flipper'
 import { Button } from 'shared/ui/Button/Button'
-
+import { ServicesWidget } from 'widgets/ServicesWidget'
 //
 
 interface FAQProps {
@@ -14,21 +14,7 @@ export const FAQ = ({className}: FAQProps) => {
   return (
     
     <div>
-        <div className={classNames(cls.services, {}, [className])}>
-            <h1>Services</h1>
-          
-        </div>
-        <div className={classNames(cls.cards, {}, [className])}>
-            <div className={classNames(cls.card, {}, [className])} style={{ backgroundImage: `url(https://raw.githubusercontent.com/TiCh0v/photos/main/track.png)` }}>
-                <p className={classNames(cls.card_description, {}, [className])}>01/SHIPPING</p>
-            </div>
-            <div className={classNames(cls.card, {}, [className])} style={{ backgroundImage: `url(https://raw.githubusercontent.com/TiCh0v/photos/main/worker.png)` }}>
-                <p className={classNames(cls.card_description, {}, [className])}>02/WARRIANTY SERVICE</p>
-            </div>
-            <div className={classNames(cls.card, {}, [className])} style={{ backgroundImage: `url(https://raw.githubusercontent.com/TiCh0v/photos/main/money.png)` }}>
-                <p className={classNames(cls.card_description, {}, [className])}>03/FINANCING</p>
-            </div>
-        </div>
+        <ServicesWidget />
         <div className={classNames(cls.faq_block, {}, [className])}>
             <h1>FAQ</h1>
             <div className={classNames(cls.flipper_block, {}, [className])}>
