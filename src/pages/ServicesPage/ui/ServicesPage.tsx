@@ -11,31 +11,8 @@ const ServicesPage = () => {
 
     return (
         <div>
-            {t('services')}
+            {/* {t('services')} */}
             <ServicesWidget />
-            {/* <div className={classNames(cls.services, {}, [])}>
-                <AppLink to={'/services'}>
-                    <h1>
-                        Services
-                    </h1>
-                </AppLink>
-            </div>
-            <div className={classNames(cls.cards, {}, [])}>
-
-                <ServiceCard 
-                    description='01/SHIPPING'
-                    imagePath='https://raw.githubusercontent.com/TiCh0v/photos/main/track.png'
-                />
-                <ServiceCard 
-                    description='02/WARRIANTY SERVICE'
-                    imagePath='https://raw.githubusercontent.com/TiCh0v/photos/main/worker.png'
-                />
-                <ServiceCard 
-                    description='03/FINANCING'
-                    imagePath='https://raw.githubusercontent.com/TiCh0v/photos/main/money.png'
-                />  
-
-            </div> */}
         </div>
     );
 };

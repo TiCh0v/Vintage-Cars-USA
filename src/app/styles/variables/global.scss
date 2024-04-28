@@ -3,6 +3,10 @@
 
 
 
+    --font-size-xs: 8px;
+    --font-line-xs: 16px;
+    --font-xs: var(--font-size-xs) / var(--font-line-xs) var(--font-family-main);
+
     --font-size-s: 14px;
     --font-line-s: 24px;
     --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);

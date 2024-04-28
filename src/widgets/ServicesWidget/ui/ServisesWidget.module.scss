@@ -42,7 +42,46 @@
 .service{
     display: flex;
     margin-top: 1.5rem;
+   
+    
     img{
-        height: 300px;
+        max-width: 330px;
+        max-height: 220px;
+        border-radius: 5px;
+        margin-right: 1rem;
     }
+    .description{
+        font-size: 8pt;
+        line-height: 18px;
+        margin-bottom: 1rem;
+        
+    }
+
+
+    @media (max-width: 680px) {
+   
+    }
+    @media (max-width: 590px) {
+        flex-direction: column;
+
+    }
+}
+
+@media (max-width: 590px) {
+
+    h1{
+        line-height: 30px;
+    }
+    .service{
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.5rem;
+
+        img{
+            
+
+            margin-right: 0rem;
+            margin-bottom: 2rem;
+        }
+    }    
 }

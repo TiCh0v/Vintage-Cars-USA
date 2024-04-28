@@ -34,3 +34,18 @@
     background-color: rgba(255, 255, 255, 0);
     font-weight: 300;
 }
+
+.black{
+    font: var(--font-s);
+    padding-right: 2rem;
+    padding-left: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    border-radius: 30px;
+    border: 1px solid #333333;
+    justify-content: center;
+    background-color: #333333;
+    height: 30px; 
+    color: #ffffff;
+}

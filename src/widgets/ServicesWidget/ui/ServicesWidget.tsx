@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+
+
+
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ServiceCard } from 'widgets/ServiceCard';
 import cls from "./ServisesWidget.module.scss"
 import { AppLink } from 'shared/ui/AppLink/AppLink';
-
-
+import axios from 'axios'
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 
 interface ServiceDetail {
     title: string,
@@ -13,42 +16,46 @@ interface ServiceDetail {
     imageUrl: string
 }
 
-const servicesData: Record<string, ServiceDetail> = {
-    shipping: {
-        title: "Shipping",
-        description: "Information about our shipping services. Information about our shipping services. Information about our shipping services. Information about our shipping services. Information about our shipping services.Information about our shipping services.Information about our shipping services. Information about our shipping services. Information about our shipping services.",
-        imageUrl: "https://raw.githubusercontent.com/TiCh0v/photos/main/track.png"
-    },
-    warranty: {
-        title: "Warranty Service",
-        description: "Details on our warranty service offerings.",
-        imageUrl: "https://raw.githubusercontent.com/TiCh0v/photos/main/worker.png"
-    },
-    financing: {
-        title: "Financing",
-        description: "Financing options available for our customers.",
-        imageUrl: "https://raw.githubusercontent.com/TiCh0v/photos/main/money.png"
-    }
-};
+
 
 export const ServicesWidget = ({ className }: { className?: string }) => {
     const { serviceType } = useParams<{ serviceType?: string }>();
     const navigate = useNavigate();
     const location = useLocation();
     const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
+    const [servicesData, setServicesData] = useState(null)
+
+    
 
     
     useEffect(() => {
-        if (serviceType && servicesData[serviceType]) {
-            setSelectedService(servicesData[serviceType]);
-        }
+        fetchData().then(data => {
+            setServicesData(data);
+            if (serviceType && data[serviceType]) {
+                setSelectedService(data[serviceType]);
+            }
+        });
     }, [serviceType]);
 
-    const handleCardClick = (type: keyof typeof servicesData) => {
-        if (location.pathname === '/') {
-            navigate(`/services/${type}`);
-        } else {
-            setSelectedService(servicesData[type]);
+    const fetchData = async () => {
+        try {
+            const response = await axios.get("https://raw.githubusercontent.com/TiCh0v/photos/main/servicesData.json");
+            console.log(response.data)
+            return response.data;  
+        } catch (error) {
+            console.error("Failed to fetch services data:", error);
+            return null;
+        }
+    }
+    
+
+    const handleCardClick = (type: string) => {
+        if (servicesData && servicesData[type]) {
+            if (location.pathname === '/') {
+                navigate(`/services/${type}`);
+            } else {
+                setSelectedService(servicesData[type]);
+            }
         }
     };
 
@@ -60,10 +67,22 @@ export const ServicesWidget = ({ className }: { className?: string }) => {
                 <h1>{selectedService.title}</h1>
                 <div className={classNames(cls.service, {}, [className])}>
 
-                    <img src={selectedService.imageUrl} alt={selectedService.title} />
+                    <img  
+                        src={selectedService.imageUrl} 
+                        alt={selectedService.title}
+                    />
                     <div className={classNames(cls.serviseInfo, {}, [className])}>
-                        <p>{selectedService.description}</p>
-                        <button onClick={() => setSelectedService(null)}>Back</button>
+                        <p 
+                            className={classNames(cls.description, {}, [className])}
+                        >
+                                {selectedService.description}
+                        </p>
+                        <Button 
+                            onClick={() => setSelectedService(null)}
+                            theme={ThemeButton.BLACK}
+                        >
+                            Back
+                        </Button>
                     </div>
                 </div>
             </>
@@ -71,6 +90,11 @@ export const ServicesWidget = ({ className }: { className?: string }) => {
     };
 
     const renderServiceCards = () => {
+        if (!servicesData) {
+            // Показываем индикатор загрузки или сообщение пользователю
+            return <div>Loading services data...</div>;
+        }
+    
         return (
             <>
                 <div className={classNames(cls.services, {}, [className])}>
@@ -107,19 +131,14 @@ export const ServicesWidget = ({ className }: { className?: string }) => {
 
 
 
-// import { classNames } from 'shared/lib/classNames/classNames'
-// import cls from './ServisesWidget.module.scss'
-// import { ServiceCard } from 'widgets/ServiceCard'
-// import { AppLink } from 'shared/ui/AppLink/AppLink'
+// import React, { useState, useEffect } from 'react';
+// import { useLocation, useNavigate, useParams } from 'react-router-dom';
+// import { classNames } from 'shared/lib/classNames/classNames';
+// import { ServiceCard } from 'widgets/ServiceCard';
+// import cls from "./ServisesWidget.module.scss"
+// import { AppLink } from 'shared/ui/AppLink/AppLink';
+// import axios from 'axios'
 
-// import { useState, useEffect } from 'react'
-// import { useLocation, useHistory, useParams } from 'react-router-dom';
-
-// //
-
-// interface ServicesWidgetProps {
-//     className?: string,
-// }
 
 // interface ServiceDetail {
 //     title: string,
@@ -127,33 +146,109 @@ export const ServicesWidget = ({ className }: { className?: string }) => {
 //     imageUrl: string
 // }
 
-// export const ServicesWidget = ({className}: ServicesWidgetProps) => {
-//   return (
-//     <>
-//         <div className={classNames(cls.services, {}, [className])}>
-//             <AppLink to={'/services'}>
-//                 <h1>
-//                     Services
-//                 </h1>
-//             </AppLink>
+// const servicesData: Record<string, ServiceDetail> = {
+//     shipping: {
+//         title: "Shipping",
+//         description: "",
+//         imageUrl: "https://raw.githubusercontent.com/TiCh0v/photos/main/track.png"
+//     },
+//     warranty: {
+//         title: "Warranty Service",
+//         description: ".",
+//         imageUrl: "https://raw.githubusercontent.com/TiCh0v/photos/main/worker.png"
+//     },
+//     financing: {
+//         title: "Financing",
+//         description: "",
+//         imageUrl: "https://raw.githubusercontent.com/TiCh0v/photos/main/money.png"
+//     }
+// };
+
+// export const ServicesWidget = ({ className }: { className?: string }) => {
+//     const { serviceType } = useParams<{ serviceType?: string }>();
+//     const navigate = useNavigate();
+//     const location = useLocation();
+//     const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
+
+    
+//     useEffect(() => {
+//         fetchData()
+//         if (serviceType && servicesData[serviceType]) {
+//             setSelectedService(servicesData[serviceType]);
+//         }
+//     }, [serviceType]);
+
+//     const fetchData = async () => {
+//         try {
+//             const response = await axios.get("https://raw.githubusercontent.com/TiCh0v/photos/main/servicesData.json");
+//             console.log(response.data)
+//             return response.data;  
+//         } catch (error) {
+//             console.error("Failed to fetch services data:", error);
+//             return null;
+//         }
+//     }
+    
+
+//     const handleCardClick = (type: keyof typeof servicesData) => {
+//         if (location.pathname === '/') {
+//             navigate(`/services/${type}`);
+//         } else {
+//             setSelectedService(servicesData[type]);
+//         }
+//     };
+
+//     const renderServiceDetail = () => {
+//         if (!selectedService) return null;
+
+//         return (
+//             <>
+//                 <h1>{selectedService.title}</h1>
+//                 <div className={classNames(cls.service, {}, [className])}>
+
+//                     <img src={selectedService.imageUrl} alt={selectedService.title} />
+//                     <div className={classNames(cls.serviseInfo, {}, [className])}>
+//                         <p>{selectedService.description}</p>
+//                         <button onClick={() => setSelectedService(null)}>Back</button>
+//                     </div>
+//                 </div>
+//             </>
+//         );
+//     };
+
+//     const renderServiceCards = () => {
+//         return (
+//             <>
+//                 <div className={classNames(cls.services, {}, [className])}>
+//                     <AppLink to={'/services'}>
+//                         <h1>
+//                             Services
+//                         </h1>
+//                     </AppLink>
         
-//         </div>
-//         <div className={classNames(cls.cards, {}, [className])}>
+//                 </div>
+//                 <div className={classNames(cls.cards, {}, [className])}>
+//                     <ServiceCard
+//                         description='01/SHIPPING'
+//                         imagePath={servicesData.shipping.imageUrl}
+//                         onClick={() => handleCardClick('shipping')}
+//                     />
+//                     <ServiceCard
+//                         description='02/WARRANTY SERVICE'
+//                         imagePath={servicesData.warranty.imageUrl}
+//                         onClick={() => handleCardClick('warranty')}
+//                     />
+//                     <ServiceCard
+//                         description='03/FINANCING'
+//                         imagePath={servicesData.financing.imageUrl}
+//                         onClick={() => handleCardClick('financing')}
+//                     />
+//                 </div>
+//             </>
+//         );
+//     };
 
-//             <ServiceCard 
-//                 description='01/SHIPPING'
-//                 imagePath='https://raw.githubusercontent.com/TiCh0v/photos/main/track.png'
-//             />
-//             <ServiceCard 
-//                 description='02/WARRIANTY SERVICE'
-//                 imagePath='https://raw.githubusercontent.com/TiCh0v/photos/main/worker.png'
-//             />
-//             <ServiceCard 
-//                 description='03/FINANCING'
-//                 imagePath='https://raw.githubusercontent.com/TiCh0v/photos/main/money.png'
-//             />  
+//     return selectedService ? renderServiceDetail() : renderServiceCards();
+// };
 
-//         </div>
-//     </>
-//   )
-// }
+
