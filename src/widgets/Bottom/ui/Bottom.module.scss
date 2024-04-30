@@ -1,0 +1,32 @@
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+}
+  
+.bottomContainer {
+    text-align: center;
+    width: 100%;
+}
+
+.iconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.icon {
+    font-size: 24px; 
+    margin: 0 10px; 
+    color: var(--primary-color); 
+}
+
+.line{
+    background-color: rgb(169, 169, 169);
+    height: 1px;
+    margin-bottom: 1.5rem;
+    margin-top: 7rem;
+}

@@ -6,6 +6,7 @@ import {AppRouter} from "app/providers/router";
 import {Navbar} from "widgets/Navbar";
 import { Sidebar } from 'widgets/Sidebar';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
+import { Bottom } from 'widgets/Bottom/ui/Bottom';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
                     {/* <Sidebar /> */}
                     <AppRouter />
                 </div>
+                <Bottom />
             </Suspense>
         </div>
     );
