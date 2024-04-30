@@ -40,15 +40,6 @@ export const FAQ = ({className}: FAQProps) => {
                 />
             </div>
         </div>
-        <div className={classNames(cls.map_block, {}, [className])}>
-            <h1> Where to find us</h1>
-            <div className={classNames(cls.map_block_contact, {}, [className])}>
-                <p className='phone'>+1 (701) 581-1331</p>
-                <p className='adress'>161 Trumpeter Ave, Soldotna, Alaska</p>
-                
-                
-            </div>
-        </div>
     </div>
     
   )

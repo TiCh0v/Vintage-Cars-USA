@@ -1,0 +1,49 @@
+
+.whowe{
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+
+.block{
+    display: flex;
+}
+
+.titleblock{
+    width: 100%;  
+    
+}
+h1{
+    line-height: 30px;
+}
+
+
+.whotext{
+    width: 100%;
+    font-size: 10pt;
+}
+
+.height{
+    height: 90%;
+}
+
+@media (max-width: 590px) {
+    .block{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .titleblock{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+        
+    }
+    .height{
+        margin: 1rem;
+    }
+}

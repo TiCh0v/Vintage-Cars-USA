@@ -10,32 +10,32 @@ interface AboutProps {
 export const About = ({className}: AboutProps) => {
   return (
     <>
-        <div className={classNames(cls.about_header, {}, [className])}>
-            <p className={classNames(cls.about_title, {}, [className])}> About us in numbers</p>
-            <p className={classNames(cls.about_text, {}, [className])}>From acquisition to restoration, we specialize in iconic automobiles, ensuring each drive is a celebration of timeless style. Elevate your journey with our passion for preserving automotive heritage.</p>
+        <div className={cls.about_header}>
+            <p className={cls.about_title}> About us in numbers</p>
+            <p className={cls.about_text}>From acquisition to restoration, we specialize in iconic automobiles, ensuring each drive is a celebration of timeless style. Elevate your journey with our passion for preserving automotive heritage.</p>
         </div>
-        <div className={classNames(cls.circle_container, {}, [className])}>
-            <div className={classNames(cls.circle, {}, [className])}>
-                <p className={classNames(cls.main_number, {}, [className])}>
+        <div className={cls.circle_container}>
+            <div className={cls.circle}>
+                <p className={cls.main_number}>
                     32
                 </p>
-                <p className={classNames(cls.secondary_text, {}, [className])}>
+                <p className={cls.secondary_text}>
                     Retro car
                 </p>
             </div>
-            <div className={classNames(cls.circle, {}, [className])}>
-                <p className={classNames(cls.main_number, {}, [className])}>
+            <div className={cls.circle}>
+                <p className={cls.main_number}>
                     400
                 </p>
-                <p className={classNames(cls.secondary_text, {}, [className])}>
+                <p className={cls.secondary_text}>
                     Satisfied clients
                 </p>
             </div>
-            <div className={classNames(cls.circle, {}, [className])}>
-                <p className={classNames(cls.main_number, {}, [className])}>
+            <div className={cls.circle}>
+                <p className={cls.main_number}>
                     5
                 </p>
-                <p className={classNames(cls.secondary_text, {}, [className])}>
+                <p className={cls.secondary_text}>
                     Years in buisness
                 </p>
             </div>
